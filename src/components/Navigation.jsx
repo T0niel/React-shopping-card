@@ -1,4 +1,4 @@
-import { ShoppingBag, ShoppingBasket } from 'lucide-react';
+import { ShoppingBasket } from 'lucide-react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { v4 as uuid4 } from 'uuid';
@@ -16,7 +16,7 @@ const links = [
   },
 ];
 
-export default function Navigation({ shoppingOnClick }) {
+export default function Navigation({ shoppingOnClick, cartAmount = 0 }) {
   const [shopIconColor, setShopIconColor] = useState('black');
 
   return (
@@ -34,10 +34,10 @@ export default function Navigation({ shoppingOnClick }) {
         ))}
       </ul>
       <div className="ml-auto flex gap-2 items-center">
-        <button aria-label="shopping card" onMouseEnter={() => setShopIconColor('green')} onMouseLeave={() => setShopIconColor('black')}>
+        <button aria-label="shopping card" onClick={shoppingOnClick} onMouseEnter={() => setShopIconColor('green')} onMouseLeave={() => setShopIconColor('black')}>
           <ShoppingBasket stroke={shopIconColor}></ShoppingBasket>
         </button>
-        <p className="font-mono text-gray-600 text-[18px]">2</p>
+        <p className="font-mono text-gray-600 text-[18px]">{cartAmount}</p>
       </div>
     </nav>
   );
