@@ -6,7 +6,7 @@ export default function Home() {
       <div className="max-w-[1700px] m-auto">
         <Navigation></Navigation>
         <div className="min-h-[70vh] flex justify-center items-center">
-          <h1 className="text-4xl text-center font-bold">
+          <h1 className="text-4xl text-center font-bold animate-popBounce">
             Welcome to a fake shopping page
           </h1>
         </div>
