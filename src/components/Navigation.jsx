@@ -1,22 +1,9 @@
 import { ShoppingBasket } from 'lucide-react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { v4 as uuid4 } from 'uuid';
+import PropTypes from 'prop-types';
 
-const links = [
-  {
-    to: '/',
-    name: 'Home',
-    id: uuid4(),
-  },
-  {
-    to: 'shop',
-    name: 'Shop',
-    id: uuid4(),
-  },
-];
-
-export default function Navigation({ shoppingOnClick, cartAmount = 0 }) {
+const Navigation = ({ shoppingOnClick, cartAmount , links }) => {
   const [shopIconColor, setShopIconColor] = useState('black');
 
   return (
@@ -42,3 +29,22 @@ export default function Navigation({ shoppingOnClick, cartAmount = 0 }) {
     </nav>
   );
 }
+
+Navigation.propTypes = {
+  shoppingOnClick: PropTypes.func.isRequired,
+  cartAmount: PropTypes.number,
+  links: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      to: PropTypes.string.isRequired,
+      name: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+};
+
+Navigation.defaultProps = {
+  cartAmount: 0,
+  links: [],
+};
+
+export default Navigation;
