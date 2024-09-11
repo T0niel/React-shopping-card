@@ -7,7 +7,7 @@ const Navigation = ({ shoppingOnClick, cartAmount , links }) => {
   const [shopIconColor, setShopIconColor] = useState('black');
 
   return (
-    <nav className="h-16 pr-12 pl-12 pt-4 pb-4 font-sans flex">
+    <nav className="h-16 mobile:pr-12 mobile:pl-12 pr-5 pl-5 pt-4 pb-4 font-sans flex">
       <ul className="flex gap-2 text-gray-700 font-medium">
         {links.map(({ id, to, name }) => (
           <li key={id}>
@@ -21,7 +21,12 @@ const Navigation = ({ shoppingOnClick, cartAmount , links }) => {
         ))}
       </ul>
       <div className="ml-auto flex gap-2 items-center">
-        <button aria-label="shopping card" onClick={shoppingOnClick} onMouseEnter={() => setShopIconColor('green')} onMouseLeave={() => setShopIconColor('black')}>
+        <button
+          aria-label="shopping card"
+          onClick={shoppingOnClick}
+          onMouseEnter={() => setShopIconColor('green')}
+          onMouseLeave={() => setShopIconColor('black')}
+        >
           <ShoppingBasket stroke={shopIconColor}></ShoppingBasket>
         </button>
         <p className="font-mono text-gray-600 text-[18px]">{cartAmount}</p>
