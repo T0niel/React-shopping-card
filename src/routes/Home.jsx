@@ -14,11 +14,11 @@ export default function Home() {
           links={navigationLinks}
         ></Navigation>
         <div className="min-h-[70vh] flex flex-col justify-center items-center">
-          <h1 className="text-4xl text-center font-bold animate-popBounce">
+          <h1 className="text-2xl tablet:text-4xl text-center font-bold animate-popBounce">
             Welcome to a fake shopping page
           </h1>
           <button
-            className="mt-6 opacity-90 hover:opacity-100 bg-green-500 p-2 text-white rounded shadow-sm hover:scale-105 transition ease-in-out delay-50"
+            className="text-sm tablet:text-xl mt-6 opacity-90 hover:opacity-100 bg-green-500 tablet:p-2 p-1 text-white rounded shadow-sm hover:scale-105 transition ease-in-out delay-50"
             onClick={() => {
               navigate('/shop');
             }}
