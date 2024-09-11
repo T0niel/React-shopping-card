@@ -18,9 +18,9 @@ describe('Card', () => {
     expect(screen.queryByText('test')).not.toEqual(null);
   });
 
-  it('Displays a img with a url (should have alt of [category]-[product])', () => {
+  it('Displays a img with a url (should have alt of [category product])', () => {
     const img = screen.getByAltText('electronic test');
-    expect(img.src).toEqual('https://example.com');
+    expect(img.src).toEqual('https://example.com/');
   });
 
   it('Displays price', () => {
