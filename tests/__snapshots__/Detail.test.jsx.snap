@@ -2,8 +2,32 @@
 
 exports[`Detail > Match snapshot 1`] = `
 <div>
-  <div>
-    <h1 />
+  <div
+    class=" bg-gray-200 cursor-pointer rounded"
+  >
+    <div
+      class="flex items-center border-b-1 border-gray-300"
+    >
+      <h1
+        class="p-2 mr-auto"
+      />
+      <svg
+        class="lucide lucide-chevron-down"
+        fill="none"
+        height="24"
+        stroke="gray"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="m6 9 6 6 6-6"
+        />
+      </svg>
+    </div>
   </div>
 </div>
 `;

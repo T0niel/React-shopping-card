@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 
 export default function Card({ name, imgUrl, price, category }) {
   return (
-    <div className="p-2 w-64 h-80 rounded opacity-95 hover:opacity-100 transition ease-in-out delay-100 bg-gray-100 shadow-sm shadow-slate-200 cursor-pointer animate-pop">
+    <div className="p-2 w-64 h-80 rounded opacity-95 hover:opacity-100 transition ease-in-out delay-100 bg-gray-50 shadow-sm shadow-slate-200 cursor-pointer animate-pop">
       <img
         className="w-[100%] mb-4 h-48 object-cover rounded animate-pop"
         src={imgUrl}
