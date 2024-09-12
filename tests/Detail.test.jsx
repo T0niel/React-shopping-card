@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import Detail from '../src/components/Detail';
-import { render} from '@testing-library/react';
+import { render, screen} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 describe('Detail', () => {
@@ -10,38 +10,40 @@ describe('Detail', () => {
   });
 
   it('Displays the text', () => {
-    render(<Detail text={'Hello'} ></Detail>);
+    render(<Detail text={'hello'} ></Detail>);
 
     const text = screen.queryByText('hello');
 
     expect(text).not.toEqual(null);
   });
 
-  it('Displays children onclick', () => {
+  it('Displays children onclick', async () => {
     const user = userEvent.setup();
 
-    const { container } = render(
+    render(
       <Detail text={'test'} >
         <h1>some description</h1>
       </Detail>
     );
 
-    user.click(container);
+    const container = screen.getByText('test').closest('div');
+    await user.click(container);
     expect(screen.queryByText('some description')).not.toEqual(null);
   });
 
-  it('Hides children when clicked twice', () => {
+  it('Hides children when clicked twice', async () => {
     const user = userEvent.setup();
 
-    const { container } = render(
+    render(
       <Detail text={'test'}>
         <h1>some description</h1>
       </Detail>
     );
 
-    user.click(container);
+    const container = screen.getByText('test').closest('div');
+    await user.click(container);
     expect(screen.queryByText('some description')).not.toEqual(null);
-    user.click();
+    await user.click();
     expect(screen.queryByText('some description')).toEqual(null);
   });
 

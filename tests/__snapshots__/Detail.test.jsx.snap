@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Detail > Match snapshot 1`] = `
+<div>
+  <div>
+    <h1 />
+  </div>
+</div>
+`;
