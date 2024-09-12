@@ -2,25 +2,29 @@ import { describe, expect, it, vi } from 'vitest';
 import Navigation from '../src/components/Navigation';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, MemoryRouter } from 'react-router-dom';
 import { v1 as uuid } from 'uuid';
 
 describe('Navigation', () => {
   it('matches snapshot', () => {
     const { container } = render(
-      <BrowserRouter>
+      <MemoryRouter>
         <Navigation
           cartAmount={0}
           shoppingOnClick={() => {}}
           links={[{ id: 123, to: '/', name: 'test' }]}
         />
-      </BrowserRouter>
+      </MemoryRouter>
     );
 
     expect(container).toMatchSnapshot();
   });
   it('has a button with shopping card label text for carts', () => {
-    render(<Navigation cartAmount={0} shoppingOnClick={() => {}} links={[]} />);
+    render(
+      <MemoryRouter>
+        <Navigation cartAmount={0} shoppingOnClick={() => {}} links={[]} />
+      </MemoryRouter>
+    );
 
     expect(screen.queryByLabelText('shopping card')).not.toEqual(null);
   });
@@ -29,7 +33,7 @@ describe('Navigation', () => {
     const user = userEvent.setup();
     const onClick = vi.fn();
 
-    render(<Navigation cartAmount={0} shoppingOnClick={onClick} links={[]} />);
+    render(<MemoryRouter><Navigation cartAmount={0} shoppingOnClick={onClick} links={[]} /></MemoryRouter>);
     const btn = screen.getByLabelText('shopping card');
 
     await user.click(btn);
@@ -44,7 +48,11 @@ describe('Navigation', () => {
 
   it('does not call shopping onclick prop when shopping cart is not clicked', () => {
     const onClick = vi.fn();
-    render(<Navigation cartAmount={0} shoppingOnClick={onClick} links={[]} />);
+    render(
+      <MemoryRouter>
+        <Navigation cartAmount={0} shoppingOnClick={onClick} links={[]} />
+      </MemoryRouter>
+    );
 
     expect(onClick.mock.calls.length).toEqual(0);
   });

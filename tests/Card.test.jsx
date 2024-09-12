@@ -1,16 +1,19 @@
 import { render, screen } from '@testing-library/react';
 import { beforeEach, describe, expect, it } from 'vitest';
 import Card from '../src/components/Card';
+import { BrowserRouter } from 'react-router-dom';
 
 describe('Card', () => {
   beforeEach(() => {
     render(
-      <Card
-        name="test"
-        imgUrl="https://example.com"
-        price={100}
-        category="electronic"
-      />
+      <BrowserRouter>
+        <Card
+          name="test"
+          imgUrl="https://example.com"
+          price={100}
+          category="electronic"
+        />
+      </BrowserRouter>
     );
   });
 
