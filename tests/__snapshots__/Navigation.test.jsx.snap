@@ -3,7 +3,7 @@
 exports[`Navigation > matches snapshot 1`] = `
 <div>
   <nav
-    class="h-16 pr-12 pl-12 pt-4 pb-4 font-sans flex"
+    class="h-16 mobile:pr-12 mobile:pl-12 pr-5 pl-5 pt-4 pb-4 font-sans flex"
   >
     <ul
       class="flex gap-2 text-gray-700 font-medium"
