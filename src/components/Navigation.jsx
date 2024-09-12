@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
-const Navigation = ({ shoppingOnClick, cartAmount , links }) => {
+const Navigation = ({ shoppingOnClick, cartAmount, links }) => {
   const [shopIconColor, setShopIconColor] = useState('black');
   const location = useLocation();
   console.log(location.pathname);
@@ -35,7 +35,7 @@ const Navigation = ({ shoppingOnClick, cartAmount , links }) => {
       </div>
     </nav>
   );
-}
+};
 
 Navigation.propTypes = {
   shoppingOnClick: PropTypes.func.isRequired,
