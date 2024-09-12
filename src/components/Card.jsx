@@ -8,7 +8,7 @@ export default function Card({ name, imgUrl, price, category }) {
         src={imgUrl}
         alt={category + ' ' + name}
       ></img>
-      <div>
+      <div className='flex'>
         <p className="font-bold font-mono text-xl">{price}</p>€
       </div>
       <p className="text-gray-700">{category}</p>
@@ -21,5 +21,5 @@ Card.propTypes = {
   name: PropTypes.string,
   imgUrl: PropTypes.string,
   price: PropTypes.number,
-  category: PropTypes.number,
+  category: PropTypes.string,
 };
