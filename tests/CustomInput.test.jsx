@@ -38,4 +38,31 @@ describe('Custom input', () => {
 
     expect(input.value).toEqual('Hello');
   });
+
+  it('Displays placeholder', () => {
+    render(
+      <CustomInput placeholder="search" onChange={() => {}} type="text" />
+    );
+
+    const input = screen.queryByPlaceholderText('search');
+    expect(input).not.toEqual(null);
+  });
+
+  it('Has the type passed (1)', () => {
+    render(
+      <CustomInput placeholder="search" onChange={() => {}} type="text" />
+    );
+
+    const input = screen.queryByRole('textbox');
+    expect(input).toHaveAttribute('type', 'text');
+  });
+
+  it('Has the type passed (2)', () => {
+    render(
+      <CustomInput placeholder="search" onChange={() => {}} type="email" />
+    );
+
+    const input = screen.queryByRole('textbox');
+    expect(input).toHaveAttribute('type', 'email');
+  });
 });
