@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 const Navigation = ({ shoppingOnClick, cartAmount = 0, links = []}) => {
   const [shopIconColor, setShopIconColor] = useState('black');
   const location = useLocation();
-  console.log(location.pathname);
 
   return (
     <nav className="h-16 mobile:pr-12 mobile:pl-12 pr-5 pl-5 pt-4 pb-4 font-sans flex">
@@ -42,7 +41,7 @@ Navigation.propTypes = {
   cartAmount: PropTypes.number,
   links: PropTypes.arrayOf(
     PropTypes.shape({
-      id: PropTypes.number.isRequired,
+      id: PropTypes.string.isRequired,
       to: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
     })

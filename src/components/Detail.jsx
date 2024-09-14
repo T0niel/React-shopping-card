@@ -7,22 +7,25 @@ export default function Detail({ text = '', children, maxHeightPixels = 200 }) {
 
   return (
     <div
-      className=" bg-gray-200 cursor-pointer rounded"
+      className=" bg-gray-200 border-2 rounded text-gray-700"
       onClick={() => {
         setDisplay(!display);
       }}
     >
-      <div className="flex items-center border-b-1 border-gray-300">
-        <h1 className="p-2 mr-auto">{text}</h1>
+      <div className="flex items-center cursor-pointer ">
+        <h1 className="p-2 mr-auto select-none ">{text}</h1>
         {display ? (
-          <ChevronUp stroke="gray"></ChevronUp>
+          <ChevronUp stroke="gray" className="mr-2"></ChevronUp>
         ) : (
-          <ChevronDown stroke="gray"></ChevronDown>
+          <ChevronDown stroke="gray" className="mr-2"></ChevronDown>
         )}
       </div>
       {display && (
         <div
-          className="bg-gray-100 border-2 p-2 overflow-y-auto"
+          className="bg-gray-100  p-2 overflow-y-auto"
+          onClick={(e) => {
+            e.stopPropagation();
+          }}
           style={{ maxHeight: `${maxHeightPixels}px` }}
         >
           {children}
