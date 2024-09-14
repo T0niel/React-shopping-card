@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types'
+
 export default function CustomButton({onClick, text}){
     return (
       <button
@@ -7,4 +9,9 @@ export default function CustomButton({onClick, text}){
         {text}
       </button>
     );
+}
+
+CustomButton.propTypes = {
+    onClick: PropTypes.func,
+    text: PropTypes.string
 }
