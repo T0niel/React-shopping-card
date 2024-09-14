@@ -1,0 +1,11 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`CustomButton > Matches snapshot 1`] = `
+<div>
+  <button
+    class="block w-[100%] border-2 opacity-90 hover:opacity-100 border-gray-400 rounded-lg p-2"
+  >
+    Hello
+  </button>
+</div>
+`;

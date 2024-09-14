@@ -15,17 +15,17 @@ describe('CustomButton', () => {
     it('Renders the text', () => {
         render(<CustomButton onClick={() => {}} text='Hello'/>);
 
-        const button = screen.queryByText('hello');
+        const button = screen.queryByText('Hello');
         expect(button).not.toEqual(null);
     })
 
-    it('Calls onClick when button clicked', () => {
+    it('Calls onClick when button clicked', async () => {
         const user = userEvent.setup();
         const onClick = vi.fn();
         render(<CustomButton onClick={onClick} text="Hello" />);
         
-        const button = screen.queryByText('hello');
-        user.click(button);
+        const button = screen.queryByText('Hello');
+        await user.click(button);
 
         expect(onClick.mock.calls.length).toEqual(1)
     })

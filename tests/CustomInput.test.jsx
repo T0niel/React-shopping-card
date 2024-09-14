@@ -5,7 +5,9 @@ import userEvent from '@testing-library/user-event';
 
 describe('Custom input', () => {
   it('Matches snapshot', () => {
-    const { container } = render(<CustomInput />);
+    const { container } = render(
+      <CustomInput placeholder="" onChange={() => {}} type="text" />
+    );
     expect(container).toMatchSnapshot();
   });
 
