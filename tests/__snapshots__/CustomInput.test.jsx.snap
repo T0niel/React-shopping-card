@@ -1,0 +1,10 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Custom input > Matches snapshot 1`] = `
+<div>
+  <input
+    class="p-1 bg-transparent border-b-2 w-[100%] outline-none focus:border-gray-300"
+    value=""
+  />
+</div>
+`;

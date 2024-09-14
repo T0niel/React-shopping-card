@@ -3,16 +3,16 @@
 exports[`Detail > Match snapshot 1`] = `
 <div>
   <div
-    class=" bg-gray-200 cursor-pointer rounded"
+    class=" bg-gray-200 border-2 rounded text-gray-700"
   >
     <div
-      class="flex items-center border-b-1 border-gray-300"
+      class="flex items-center cursor-pointer "
     >
       <h1
-        class="p-2 mr-auto"
+        class="p-2 mr-auto select-none "
       />
       <svg
-        class="lucide lucide-chevron-down"
+        class="lucide lucide-chevron-down mr-2"
         fill="none"
         height="24"
         stroke="gray"
