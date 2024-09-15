@@ -22,7 +22,7 @@ export default function Detail({ text = '', children, maxHeightPixels = 200 }) {
       </div>
       {display && (
         <div
-          className="bg-gray-100  p-2 overflow-y-auto"
+          className="bg-gray-100  overflow-y-auto"
           onClick={(e) => {
             e.stopPropagation();
           }}
