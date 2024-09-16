@@ -12,7 +12,7 @@ export default function Detail({ text = '', children, maxHeightPixels = 200 }) {
         setDisplay(!display);
       }}
     >
-      <div className="flex items-center cursor-pointer ">
+      <div className="flex items-center cursor-pointer   ">
         <h1 className="p-2 mr-auto select-none ">{text}</h1>
         {display ? (
           <ChevronUp stroke="gray" className="mr-2"></ChevronUp>
