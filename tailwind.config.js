@@ -4,10 +4,10 @@ export default {
   theme: {
     extend: {
       screens: {
-        mobile: '480px',
-        tablet: '768px',
-        laptop: '1024px',
-        desktop: '1280px',
+        mobile: '380px',
+        tablet: '668px',
+        laptop: '824px',
+        desktop: '1180px',
       },
       keyframes: {
         popBounce: {
