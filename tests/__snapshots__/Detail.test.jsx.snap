@@ -6,7 +6,7 @@ exports[`Detail > Match snapshot 1`] = `
     class=" bg-gray-200 border-2 rounded text-gray-700"
   >
     <div
-      class="flex items-center cursor-pointer "
+      class="flex items-center cursor-pointer   "
     >
       <h1
         class="p-2 mr-auto select-none "

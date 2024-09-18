@@ -3,7 +3,7 @@
 exports[`CustomButton > Matches snapshot 1`] = `
 <div>
   <button
-    class="block w-[100%] border-2 opacity-90 hover:opacity-100 border-gray-400 rounded-lg p-2"
+    class="block w-[100%] border-2 text-black opacity-80 hover:opacity-100 border-gray-600 rounded-lg p-2"
   >
     Hello
   </button>
