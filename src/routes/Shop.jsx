@@ -24,6 +24,7 @@ export default function Shop() {
           links={navigationLinks}
         ></Navigation>
 
+        {/*This is for the mobile settings*/}
         {displayMobileSetting && (
           <div className="fixed bg-gray-100 p-2 border-2 bottom-0 top-28 rounded-md left-0 right-0 z-10">
             <X

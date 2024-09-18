@@ -4,6 +4,7 @@ import fetchCategories from '../js/fetchCategories';
 import CustomInput from './CustomInput';
 import Detail from './Detail';
 import CustomButton from './CustomButton';
+import PropTypes from 'prop-types';
 
 async function getCategories() {
   const categories = await fetchCategories();
@@ -184,3 +185,10 @@ export default function Settings({ setProducts, products, from, to }) {
     </div>
   );
 }
+
+Settings.propTypes = {
+  setProducts: PropTypes.func,
+  products: PropTypes.array,
+  from: PropTypes.number,
+  to: PropTypes.number
+};
