@@ -8,6 +8,7 @@ import { X } from 'lucide-react';
 const viewAmount = 30;
 export default function Shop() {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   //This is for pagination
   const [from, setFrom] = useState(0);
@@ -40,6 +41,7 @@ export default function Shop() {
                 products={products}
                 from={from}
                 to={to}
+                setLoading={setLoading}
               ></Settings>
             </div>
           </div>
@@ -62,6 +64,7 @@ export default function Shop() {
                 products={products}
                 from={from}
                 to={to}
+                setLoading={setLoading}
               ></Settings>
             </div>
 
@@ -103,12 +106,20 @@ export default function Shop() {
                 ))}
               </div>
 
-              {products.length === 0 && (
-                <div className="flex justify-center items-center min-h-[60vh] text-3xl">
-                  <h1 className="font-bold text-center">
-                    Could not find any more products
+              {loading ? (
+                <div className="flex justify-center items-center min-h-[60vh] text-3xl animate-pulse">
+                  <h1 className="font-bold text-gray-300 text-center">
+                    Loading...
                   </h1>
                 </div>
+              ) : (
+                products.length === 0 && (
+                  <div className="flex justify-center items-center min-h-[60vh] text-3xl">
+                    <h1 className="font-bold text-center">
+                      Could not find any more products
+                    </h1>
+                  </div>
+                )
               )}
             </div>
           </div>

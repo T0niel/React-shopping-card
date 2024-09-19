@@ -12,7 +12,13 @@ async function getCategories() {
 }
 
 const viewAmount = 30;
-export default function Settings({ setProducts, products, from, to }) {
+export default function Settings({
+  setProducts,
+  products,
+  from,
+  to,
+  setLoading,
+}) {
   const [categories, setCategories] = useState([]);
   const [settings, setSettings] = useState({
     min: 0,
@@ -33,11 +39,13 @@ export default function Settings({ setProducts, products, from, to }) {
         categories
       );
       if (data) {
+        setLoading(false);
         setProducts(() => [...data.products]);
       }
     }
 
     getProducts();
+    setLoading(true);
   }, [
     categories,
     settings.min,
@@ -45,7 +53,8 @@ export default function Settings({ setProducts, products, from, to }) {
     settings.search,
     setProducts,
     from,
-    to
+    to,
+    setLoading,
   ]);
 
   useEffect(() => {
@@ -115,10 +124,10 @@ export default function Settings({ setProducts, products, from, to }) {
             text="Highest to lowest"
           />
           <CustomButton
-          text="Relevance"
-           onClick={() => {
-            fetchProducts()            
-           }}
+            text="Relevance"
+            onClick={() => {
+              fetchProducts();
+            }}
           />
         </div>
       </Detail>
@@ -188,7 +197,8 @@ export default function Settings({ setProducts, products, from, to }) {
 
 Settings.propTypes = {
   setProducts: PropTypes.func,
+  setLoading: PropTypes.func,
   products: PropTypes.array,
   from: PropTypes.number,
-  to: PropTypes.number
+  to: PropTypes.number,
 };
