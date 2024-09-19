@@ -1,19 +1,20 @@
 import { ShoppingBasket } from 'lucide-react';
 import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 const Navigation = ({ shoppingOnClick, cartAmount = 0, links = []}) => {
   const [shopIconColor, setShopIconColor] = useState('black');
-  const location = useLocation();
 
+  console.log(location.search);
   return (
     <nav className="h-16 mobile:pr-12 mobile:pl-12 pr-5 pl-5 pt-4 pb-4 font-sans flex">
       <ul className="flex gap-2 text-gray-700 font-medium">
         {links.map(({ id, to, name }) => (
           <li key={id}>
+            
             <Link
-              to={location.pathname.slice(1) !== to ? to : undefined}
+              to={to}
               className="hover:text-green-400 transition ease-in-out duration-300"
             >
               {name}

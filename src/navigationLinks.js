@@ -8,7 +8,7 @@ export default [
   },
   {
     id: uuid(),
-    to: 'shop',
+    to: '/shop',
     name: 'Shop',
   },
 ];

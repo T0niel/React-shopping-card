@@ -108,10 +108,8 @@ export default function Shop() {
               </div>
 
               {loading ? (
-                <div className="flex justify-center items-center min-h-[60vh] text-3xl animate-pulse">
-                  <h1 className="font-bold text-gray-300 text-center">
-                    Loading...
-                  </h1>
+                <div className="flex justify-center items-center min-h-[60vh]">
+                  <span className="loader"></span>
                 </div>
               ) : (
                 products.length === 0 && (
