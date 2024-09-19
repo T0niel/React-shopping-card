@@ -36,7 +36,8 @@ export default function Settings({
         settings.search,
         settings.min,
         settings.max,
-        categories
+        categories,
+        true
       );
       if (data) {
         setLoading(false);

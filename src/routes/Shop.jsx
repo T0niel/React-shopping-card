@@ -69,20 +69,20 @@ export default function Shop() {
             </div>
 
             <div className="flex-[4]">
-              <div className="flex gap-1 justify-center pb-3">
+              <div className="flex gap-4 justify-center pb-3">
                 <button
                   aria-label="previous products"
-                  className="text-black pl-1 pr-1 pt-1 pb-1 border-b-2 border-gray-600 font-semibold opacity-70 hover:opacity-100 hover:border-green-400"
+                  className="text-black text-3xl font-semibold opacity-70 hover:opacity-100 hover:text-green-400"
                   onClick={() => {
                     setFrom(Math.max(from - viewAmount, 0));
                     setTo(Math.max(from, viewAmount));
                   }}
                 >
-                  Prev
+                  {'<'}
                 </button>
                 <button
                   aria-label="next products"
-                  className="text-black pl-1 pr-1 pt-1 pb-1 border-b-2 border-gray-600 font-semibold opacity-70 hover:opacity-100 hover:border-green-400"
+                  className="text-black text-3xl font-semibold opacity-70 hover:opacity-100 hover:text-green-400"
                   onClick={() => {
                     if (products.length) {
                       setFrom(to);
@@ -90,7 +90,7 @@ export default function Shop() {
                     }
                   }}
                 >
-                  Next
+                  {'>'}
                 </button>
               </div>
 
@@ -102,6 +102,7 @@ export default function Shop() {
                     imgUrl={product.thumbnail}
                     price={product.price}
                     category={product.category}
+                    productId={product.id}
                   />
                 ))}
               </div>

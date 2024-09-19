@@ -1,15 +1,32 @@
+let storedCache = null;
+
 export default async (
   from = 0,
   to = 30,
   search = '',
   min = 0,
   max = Infinity,
-  categories = []
+  categories = [],
+  cache = false
 ) => {
-  const res = await fetch(
-    `https://dummyjson.com/products?limit=100000000&skip=0`
-  );
-  let data = await res.json();
+  let data;
+  if (cache) {
+    if (!storedCache) {
+      const res = await fetch(
+        `https://dummyjson.com/products?limit=100000000&skip=0`
+      );
+      data = await res.json();
+      storedCache = data;
+    } else {
+      data = storedCache;
+    }
+  } else {
+    const res = await fetch(
+      `https://dummyjson.com/products?limit=100000000&skip=0`
+    );
+    data = await res.json();
+  }
+
   const copy = {
     ...data,
     products: data.products
