@@ -1,10 +1,7 @@
 import { describe, expect, it, vi } from 'vitest';
 import fetchProductData from '../src/js/fetchProductData';
 import mockFetch from './utils/mockFetch';
-
-function mockProduct(title, price, category) {
-  return { title, price, category };
-}
+import mockProduct from './utils/mockProduct';
 
 function mockProducts(amount, category = 'test') {
   const products = [];
