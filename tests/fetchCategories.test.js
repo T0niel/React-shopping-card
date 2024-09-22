@@ -1,12 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
 import fetchCategories from '../src/js/fetchCategories';
-
-function mockFetch(status, data) {
-  return Promise.resolve({
-    json: () => Promise.resolve(data),
-    status,
-  });
-}
+import mockFetch from './utils/mockFetch';
 
 describe('fetchCategories', () => {
   it('Gives the categories in a list', async () => {

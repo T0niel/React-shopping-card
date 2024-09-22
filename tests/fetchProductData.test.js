@@ -1,12 +1,6 @@
 import { describe, expect, it, vi } from 'vitest';
 import fetchProductData from '../src/js/fetchProductData';
-
-function mockFetch(status, data) {
-  return Promise.resolve({
-    json: () => Promise.resolve(data),
-    status,
-  });
-}
+import mockFetch from './utils/mockFetch';
 
 function mockProduct(title, price, category) {
   return { title, price, category };
