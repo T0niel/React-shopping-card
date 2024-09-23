@@ -9,6 +9,7 @@ export default function ImageCarousel({ imgs }) {
     imgs.forEach((img) => {
       const image = new Image();
       image.src = img.src; // Image starts loading and gets cached
+      img.decoding = 'async';
     });
   }, [imgs]);
 
@@ -31,20 +32,21 @@ export default function ImageCarousel({ imgs }) {
   if (imgs.length === 0) return <div>No images available</div>;
 
   return (
-    <div className="w-[100%] h-[100%] relative border-2 rounded border-gray-100">
+    <div className="w-[100%] h-[100%] relative border-2 rounded border-gray-200">
       {loading && (
-        <div className="loader absolute top-0 left-0 right-0 bottom-0 -z-10 flex justify-center items-center m-[auto]">
-        </div>
+        <div className="loader absolute top-0 left-0 right-0 bottom-0 -z-10 flex justify-center items-center m-[auto]"></div>
       )}
 
-      <img
-        src={imgs[index].src}
-        alt={imgs[index].alt}
-        className={`object-contain w-[100%] h-[100%] ${
-          loading ? 'opacity-50' : 'opacity-100'
-        }`} 
-        onLoad={handleImageLoad}
-      />
+      {index < imgs.length && (
+        <img
+          src={imgs[index].src}
+          alt={imgs[index].alt}
+          className={`object-contain w-[100%] h-[100%] ${
+            loading ? 'opacity-50' : 'opacity-100'
+          }`}
+          onLoad={handleImageLoad}
+        />
+      )}
       {imgs.length > 1 && (
         <>
           <button
