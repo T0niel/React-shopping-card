@@ -131,7 +131,7 @@ export default function ProductPage() {
                         }}
                         className="block bg-green-400 p-2 font-serif font-bold mt-2 text-white rounded opacity-80 hover:opacity-100 transition-opacity ease-in-out delay-100"
                       >
-                        Add one product to cart
+                        Add one item to cart
                       </button>
                     ) : product.stock < 0 ? (
                       <div className="mt-2 text-md font-bold text-red-500">
