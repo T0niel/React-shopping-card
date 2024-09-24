@@ -17,8 +17,6 @@ export default function ProductPage() {
     setAmount(savedItem ? savedItem.amount : 0);
   }, [savedItem]);
 
-  console.log({ amount });
-
   const addProduct = (amount) => {
     if(amount > 1){
       setCart(cart.map(item => {

@@ -10,7 +10,6 @@ export default function Card({ name, imgUrl, price, category, productId }) {
     <div
       className="relative p-2 rounded opacity-95 hover:opacity-100 transition ease-in-out delay-100 bg-gray-50 shadow-sm shadow-slate-200 cursor-pointer animate-pop"
       onClick={() => {
-        console.log('onClick');
         navigate(`/product/${productId}`, { replace: true });
       }}
     >

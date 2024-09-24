@@ -27,8 +27,6 @@ async function testField(indexes, ...params) {
 
   indexes.forEach((index) => {
     const val = params[index];
-    console.log('value');
-    console.log(val);
     const element = screen.queryByText(val.toString());
     expect(element).toBeInTheDocument();
   });
