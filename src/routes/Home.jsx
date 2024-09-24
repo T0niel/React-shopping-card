@@ -10,7 +10,6 @@ export default function Home() {
       <div className="max-w-[1700px] m-auto">
         <Navigation
           shoppingOnClick={() => {}}
-          cartAmount={0}
           links={navigationLinks}
         ></Navigation>
         <div className="min-h-[70vh] flex flex-col justify-center items-center">

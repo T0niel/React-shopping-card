@@ -21,7 +21,6 @@ export default function Shop() {
       <div className="max-w-[1700px] m-auto">
         <Navigation
           shoppingOnClick={() => {}}
-          cartAmount={0}
           links={navigationLinks}
         ></Navigation>
 
