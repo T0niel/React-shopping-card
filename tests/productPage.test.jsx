@@ -4,6 +4,8 @@ import mockFetch from './utils/mockFetch';
 import mockProduct from './utils/mockProduct';
 import { render, screen } from '@testing-library/react';
 import { act } from 'react';
+import { ShoppingCart } from '../src/App';
+import { MemoryRouter } from 'react-router-dom';
 
 //Mocks the product with the params passed in and gets the index to check if those fields exists after
 async function testField(indexes, ...params) {
@@ -14,7 +16,13 @@ async function testField(indexes, ...params) {
   );
 
   await act(async () => {
-    render(<ProductPage />);
+    render(
+      <MemoryRouter>
+        <ShoppingCart.Provider value={{ cart: [], setCart: () => {} }}>
+          <ProductPage />
+        </ShoppingCart.Provider>
+      </MemoryRouter>
+    );
   });
 
   indexes.forEach((index) => {
@@ -31,16 +39,18 @@ vi.mock('../src/components/ImageCarousel', () => ({
   default: () => <div data-testid="mock-imageCarousel"></div>,
 }));
 
-
 vi.mock('../src/components/Navigation', () => ({
   __esModule: true,
   default: () => <nav data-testid="mock-navigation"></nav>,
 }));
 
-vi.mock('react-router-dom', () => ({
-  ...vi.importActual('react-router-dom'),
-  useParams: vi.fn(() => ({ productId: 1 })),
-}));
+vi.mock(import('react-router-dom'), async (importOriginal) => {
+  const actual = await importOriginal();
+  return {
+    ...actual,
+    useParams: vi.fn(() => ({ productId: 1 })),
+  };
+});
 
 describe('ProductPage', () => {
   it('displays the product name', async () => {
@@ -104,7 +114,13 @@ describe('ProductPage', () => {
     );
 
     await act(async () => {
-      render(<ProductPage />);
+      render(
+        <MemoryRouter>
+          <ShoppingCart.Provider value={{ cart: [], setCart: () => {} }}>
+            <ProductPage />
+          </ShoppingCart.Provider>
+        </MemoryRouter>
+      );
     });
 
     const widthElement = screen.getByText(width);
@@ -124,12 +140,17 @@ describe('ProductPage', () => {
       })
     );
 
-    
     await act(async () => {
-      render(<ProductPage />);
+      render(
+        <MemoryRouter>
+          <ShoppingCart.Provider value={{ cart: [], setCart: () => {} }}>
+            <ProductPage />
+          </ShoppingCart.Provider>
+        </MemoryRouter>
+      );
     });
 
     const btn = screen.getByRole('button');
-    expect(btn.textContent).toEqual('Add to cart');
-  })
+    expect(btn.textContent).toEqual('Add one item to cart');
+  });
 });

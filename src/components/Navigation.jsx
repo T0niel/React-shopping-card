@@ -43,7 +43,6 @@ const Navigation = ({ shoppingOnClick, links = [] }) => {
 
 Navigation.propTypes = {
   shoppingOnClick: PropTypes.func.isRequired,
-  cartAmount: PropTypes.number,
   links: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,

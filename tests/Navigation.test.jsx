@@ -2,28 +2,35 @@ import { describe, expect, it, vi } from 'vitest';
 import Navigation from '../src/components/Navigation';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { BrowserRouter, MemoryRouter } from 'react-router-dom';
+import { MemoryRouter } from 'react-router-dom';
 import { v1 as uuid } from 'uuid';
+import { ShoppingCart } from '../src/App';
+
+// eslint-disable-next-line react/prop-types
+const TestNavigation = ({links, shoppingOnClick}) => {
+  return (
+    <MemoryRouter>
+      <ShoppingCart.Provider value={{ cart: [], setCart: () => {} }}>
+        <Navigation shoppingOnClick={shoppingOnClick} links={links} />
+      </ShoppingCart.Provider>
+    </MemoryRouter>
+  );
+}
 
 describe('Navigation', () => {
   it('matches snapshot', () => {
     const { container } = render(
-      <MemoryRouter>
-        <Navigation
-          cartAmount={0}
-          shoppingOnClick={() => {}}
-          links={[{ id: 123, to: '/', name: 'test' }]}
-        />
-      </MemoryRouter>
+      <TestNavigation links={[{ id: '123', to: '/', name: 'test' }]} shoppingOnClick={() => {}} />
     );
 
     expect(container).toMatchSnapshot();
   });
   it('has a button with shopping card label text for carts', () => {
     render(
-      <MemoryRouter>
-        <Navigation cartAmount={0} shoppingOnClick={() => {}} links={[]} />
-      </MemoryRouter>
+        <TestNavigation
+          links={[]}
+          shoppingOnClick={() => {}}
+        />
     );
 
     expect(screen.queryByLabelText('shopping card')).not.toEqual(null);
@@ -33,7 +40,7 @@ describe('Navigation', () => {
     const user = userEvent.setup();
     const onClick = vi.fn();
 
-    render(<MemoryRouter><Navigation cartAmount={0} shoppingOnClick={onClick} links={[]} /></MemoryRouter>);
+    render(<TestNavigation links={[]} shoppingOnClick={onClick} />);
     const btn = screen.getByLabelText('shopping card');
 
     await user.click(btn);
@@ -48,11 +55,7 @@ describe('Navigation', () => {
 
   it('does not call shopping onclick prop when shopping cart is not clicked', () => {
     const onClick = vi.fn();
-    render(
-      <MemoryRouter>
-        <Navigation cartAmount={0} shoppingOnClick={onClick} links={[]} />
-      </MemoryRouter>
-    );
+    render(<TestNavigation links={[]} shoppingOnClick={onClick} />);
 
     expect(onClick.mock.calls.length).toEqual(0);
   });
@@ -60,13 +63,10 @@ describe('Navigation', () => {
   it('adds link', () => {
     const testName = uuid();
     render(
-      <BrowserRouter>
-        <Navigation
-          cartAmount={0}
-          shoppingOnClick={() => {}}
-          links={[{ id: 123, to: '/', name: testName }]}
-        />
-      </BrowserRouter>
+      <TestNavigation
+        links={[{ id: '123', to: '/', name: 'test' }]}
+        shoppingOnClick={() => {}}
+      />
     );
 
     const link = screen.findByText(testName);
