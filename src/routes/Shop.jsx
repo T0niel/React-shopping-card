@@ -26,22 +26,24 @@ export default function Shop() {
 
         {/*This is for the mobile settings*/}
         {displayMobileSetting && (
-          <div className="fixed bg-gray-100 p-2 border-2 bottom-0 top-28 rounded-md left-0 right-0 z-10">
-            <X
-              className="ml-auto mr-2 cursor-pointer mb-2"
-              stroke="#303030"
-              onClick={() => {
-                setDisplayMobileSetting(!displayMobileSetting);
-              }}
-            ></X>
-            <div className="max-w-[1000px] m-auto">
-              <Settings
-                setProducts={setProducts}
-                products={products}
-                from={from}
-                to={to}
-                setLoading={setLoading}
-              ></Settings>
+          <div className="fixed top-0 left-0 right-0 bottom-0 bg-[rgba(57,49,49,0.5)] z-10">
+            <div className="fixed overflow-auto bg-gray-100 p-2 border-2 bottom-0 top-28 rounded-md left-0 right-0 z-10">
+              <X
+                className="ml-auto mr-2 cursor-pointer mb-2"
+                stroke="#303030"
+                onClick={() => {
+                  setDisplayMobileSetting(!displayMobileSetting);
+                }}
+              ></X>
+              <div className="max-w-[1000px] m-auto">
+                <Settings
+                  setProducts={setProducts}
+                  products={products}
+                  from={from}
+                  to={to}
+                  setLoading={setLoading}
+                ></Settings>
+              </div>
             </div>
           </div>
         )}
