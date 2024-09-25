@@ -11,7 +11,6 @@ async function getCategories() {
   return categories.map((category) => ({ category, selected: true }));
 }
 
-const viewAmount = 30;
 export default function Settings({
   setProducts,
   products,
@@ -30,9 +29,12 @@ export default function Settings({
 
   const fetchProducts = useCallback(() => {
     async function getProducts() {
+      const searchFrom = settings.search !== '' ? 0 : from;
+      const searchTo = settings.search !== '' ? Infinity : to;
+
       const data = await fetchProductData(
-        from,
-        to,
+        searchFrom,
+        searchTo,
         settings.search,
         settings.min,
         settings.max,
@@ -90,10 +92,6 @@ export default function Settings({
     fetchProducts,
   ]);
 
-  useEffect(() => {
-    updateField('from', 0);
-    updateField('to', viewAmount);
-  }, [categories]);
   return (
     <div className="bg-gray-200 h-min rounded">
       <Detail text="Search">

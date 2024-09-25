@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 const iconLight = '#475569';
 const iconDark = '#0f172a';
 
-export default function CartSideBar({ setSideBarDisplay }) {
+export default function CartSide({ setSideBarDisplay }) {
   const { cart, setCart } = useContext(ShoppingCart);
   const [products, setProducts] = useState([]);
   const [err, setError] = useState(undefined);
@@ -128,7 +128,6 @@ export default function CartSideBar({ setSideBarDisplay }) {
             <p>
               Total:{' '}
               {cart.reduce((sum, item) => {
-                console.log({ products });
                 const product = products.find(
                   (product) => product.id === item.id
                 );
@@ -148,6 +147,6 @@ export default function CartSideBar({ setSideBarDisplay }) {
   );
 }
 
-CartSideBar.propTypes = {
+CartSide.propTypes = {
   setSideBarDisplay: PropTypes.func,
 };

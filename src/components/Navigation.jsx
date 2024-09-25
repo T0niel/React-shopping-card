@@ -3,7 +3,7 @@ import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { ShoppingCart } from '../App';
-import CartSideBar from './CartSideBar';
+import CartSide from './CartSide';
 
 const Navigation = ({ links = [] }) => {
   const [shopIconColor, setShopIconColor] = useState('black');
@@ -41,7 +41,7 @@ const Navigation = ({ links = [] }) => {
           }, 0)}
         </p>
       </div>
-      {displaySideBar && <CartSideBar setSideBarDisplay={setDisplaySideBar} />}
+      {displaySideBar && <CartSide setSideBarDisplay={setDisplaySideBar} />}
     </nav>
   );
 };
