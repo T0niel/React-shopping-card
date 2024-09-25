@@ -48,7 +48,7 @@ export default function ProductPage() {
   }, [cart, productId, product]);
 
   return (
-    <div className="bg-gray-50">
+    <div className="bg-gray-50 font-sans">
       <div className="min-h-[100vh] max-w-[1700px] m-auto">
         <Navigation
           shoppingOnClick={() => {}}
@@ -158,9 +158,11 @@ export default function ProductPage() {
 
 const Field = ({ title, data, extraDataStyleTailwind }) => {
   return (
-    <div className="flex text-md p-1">
+    <div className="flex text-md p-1 text-gray-700">
       <p>{title}: </p>
-      <p className={`ml-auto ${extraDataStyleTailwind}`}>{data}</p>
+      <p className={`ml-auto ${extraDataStyleTailwind}`}>
+        <span className='font-semibold'>{data}</span>
+      </p>
     </div>
   );
 };

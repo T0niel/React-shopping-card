@@ -6,7 +6,9 @@ export default function mockProduct(
   dimensions = {width: 0, height: 0, depth: 0},
   warrantyInformation = 'No warranty',
   shippingInformation = 'Ships tomorrow',
-  returnPolicy = '30 days return policy'
+  returnPolicy = '30 days return policy',
+  images = [],
+  thumbnail = '',
 ) {
   return {
     title,
@@ -17,6 +19,7 @@ export default function mockProduct(
     shippingInformation,
     returnPolicy,
     dimensions,
-    images: []
+    images,
+    thumbnail
   };
 }

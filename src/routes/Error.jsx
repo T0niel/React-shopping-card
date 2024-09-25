@@ -8,7 +8,7 @@ export default function Error() {
   }
 
   return (
-    <div className="bg-stone-800 min-h-[100vh] text-slate-100 flex flex-col justify-center items-center">
+    <div className="bg-stone-800 min-h-[100vh] text-slate-100 flex flex-col justify-center items-center font-sans">
       <div className="w-100 text-center">
         <h1 className="text-[30px] p-2 text-red-500">Error</h1>
         <div className="text-xl flex justify-center">

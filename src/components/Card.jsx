@@ -8,7 +8,7 @@ export default function Card({ name, imgUrl, price, category, productId }) {
   const navigate = useNavigate();
   return (
     <div
-      className="relative p-2 rounded opacity-95 hover:opacity-100 transition ease-in-out delay-100 bg-gray-50 shadow-sm shadow-slate-200 cursor-pointer animate-pop"
+      className="relative font-sans p-2 rounded opacity-95 hover:opacity-100 transition ease-in-out delay-100 bg-gray-50 shadow-sm shadow-slate-200 cursor-pointer animate-pop"
       onClick={() => {
         navigate(`/product/${productId}`, { replace: true });
       }}

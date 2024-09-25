@@ -7,11 +7,11 @@ import { v1 as uuid } from 'uuid';
 import { ShoppingCart } from '../src/App';
 
 // eslint-disable-next-line react/prop-types
-const TestNavigation = ({links, shoppingOnClick}) => {
+const TestNavigation = ({links}) => {
   return (
     <MemoryRouter>
       <ShoppingCart.Provider value={{ cart: [], setCart: () => {} }}>
-        <Navigation shoppingOnClick={shoppingOnClick} links={links} />
+        <Navigation links={links} />
       </ShoppingCart.Provider>
     </MemoryRouter>
   );
@@ -20,7 +20,7 @@ const TestNavigation = ({links, shoppingOnClick}) => {
 describe('Navigation', () => {
   it('matches snapshot', () => {
     const { container } = render(
-      <TestNavigation links={[{ id: '123', to: '/', name: 'test' }]} shoppingOnClick={() => {}} />
+      <TestNavigation links={[{ id: '123', to: '/', name: 'test' }]}/>
     );
 
     expect(container).toMatchSnapshot();
@@ -29,35 +29,10 @@ describe('Navigation', () => {
     render(
         <TestNavigation
           links={[]}
-          shoppingOnClick={() => {}}
         />
     );
 
     expect(screen.queryByLabelText('shopping card')).not.toEqual(null);
-  });
-
-  it('calls shopping onclick prop when shopping cart clicked', async () => {
-    const user = userEvent.setup();
-    const onClick = vi.fn();
-
-    render(<TestNavigation links={[]} shoppingOnClick={onClick} />);
-    const btn = screen.getByLabelText('shopping card');
-
-    await user.click(btn);
-    expect(onClick.mock.calls.length).toEqual(1);
-
-    await user.click(btn);
-    expect(onClick.mock.calls.length).toEqual(2);
-
-    await user.click(btn);
-    expect(onClick.mock.calls.length).toEqual(3);
-  });
-
-  it('does not call shopping onclick prop when shopping cart is not clicked', () => {
-    const onClick = vi.fn();
-    render(<TestNavigation links={[]} shoppingOnClick={onClick} />);
-
-    expect(onClick.mock.calls.length).toEqual(0);
   });
 
   it('adds link', () => {
@@ -65,7 +40,6 @@ describe('Navigation', () => {
     render(
       <TestNavigation
         links={[{ id: '123', to: '/', name: 'test' }]}
-        shoppingOnClick={() => {}}
       />
     );
 

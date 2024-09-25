@@ -6,7 +6,7 @@ export default function Home() {
   const navigate = useNavigate();
 
   return (
-    <div className="bg-slate-100 min-h-[100vh] bg-gradient-to-br from-slate-100 to-gray-300">
+    <div className="bg-slate-100 min-h-[100vh] bg-gradient-to-br from-slate-100 to-gray-300 font-sans">
       <div className="max-w-[1700px] m-auto">
         <Navigation
           shoppingOnClick={() => {}}

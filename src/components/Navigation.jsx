@@ -3,9 +3,11 @@ import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { ShoppingCart } from '../App';
+import CartSideBar from './CartSideBar';
 
-const Navigation = ({ shoppingOnClick, links = [] }) => {
+const Navigation = ({ links = [] }) => {
   const [shopIconColor, setShopIconColor] = useState('black');
+  const [displaySideBar, setDisplaySideBar] = useState(false);
   const { cart } = useContext(ShoppingCart);
 
   return (
@@ -25,7 +27,9 @@ const Navigation = ({ shoppingOnClick, links = [] }) => {
       <div className="ml-auto flex gap-2 items-center">
         <button
           aria-label="shopping card"
-          onClick={shoppingOnClick}
+          onClick={() => {
+            setDisplaySideBar(true);
+          }}
           onMouseEnter={() => setShopIconColor('green')}
           onMouseLeave={() => setShopIconColor('black')}
         >
@@ -37,6 +41,7 @@ const Navigation = ({ shoppingOnClick, links = [] }) => {
           }, 0)}
         </p>
       </div>
+      {displaySideBar && <CartSideBar setSideBarDisplay={setDisplaySideBar} />}
     </nav>
   );
 };

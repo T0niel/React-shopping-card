@@ -17,7 +17,7 @@ export default function Shop() {
   const [displayMobileSetting, setDisplayMobileSetting] = useState(false);
 
   return (
-    <div className="bg-gray-100 min-h-[100vh]">
+    <div className="bg-gray-100 min-h-[100vh] font-sans">
       <div className="max-w-[1700px] m-auto">
         <Navigation
           shoppingOnClick={() => {}}
