@@ -54,10 +54,8 @@ export default function Settings({
     settings.min,
     settings.max,
     settings.search,
-    setProducts,
     from,
     to,
-    setLoading,
   ]);
 
   useEffect(() => {
